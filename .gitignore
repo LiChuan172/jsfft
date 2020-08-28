@@ -12,6 +12,7 @@ logs
 results
 
 dist
+.cache
 
 node_modules
 npm-debug.log

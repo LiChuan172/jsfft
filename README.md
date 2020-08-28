@@ -2,6 +2,15 @@
 
 Small, efficient Javascript FFT implementation for node or the browser.
 
+## Start Example
+
+
+
+```bash
+npm install -g parcel-bundler
+npm run example
+```
+
 ## Usage
 
 JSFFT ships with **ComplexArray** which can be operated on:
