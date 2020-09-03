@@ -32,3 +32,16 @@ div.explanation {
 pre, code {
   font-size: 85%;
 }
+
+.echart {
+  width: 600px;
+  height: 400px;
+  background-color: greenyellow;
+  margin-top: 20px;
+}
+
+.oldPanel {
+  height: 400px;
+  overflow: auto;
+  border: solid 2px black;
+}

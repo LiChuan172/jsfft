@@ -1,4 +1,6 @@
-import {ComplexArray} from '../lib/fft';
+import { ComplexArray } from '../lib/fft';
+import { Signal } from '../lib/signal'
+import { drawEChart } from './drawEchart'
 
 function drawToCanvas(element_id, data) {
   const element = document.getElementById(element_id);
@@ -20,15 +22,19 @@ function drawToCanvas(element_id, data) {
   context.stroke();
 }
 
+
 window.onload = function() {
-  const data = new ComplexArray(128).map((value, i, n) => {
+  const data = new Signal(1024).map((value, i, n) => {
     value.real = (i > n/3 && i < 2*n/3) ? 1 : 0;
   });
 
   drawToCanvas('original', data);
+  drawEChart('echart1', data)
 
   data.FFT();
   drawToCanvas('fft', data);
+  drawEChart('echart2', data)
+  // drawToECharts('echart1', data);
   data.map((freq, i, n) => {
     if (i > n/5 && i < 4*n/5) {
       freq.real = 0;
@@ -36,7 +42,11 @@ window.onload = function() {
     }
   });
   drawToCanvas('fft_filtered', data);
+  drawEChart("echart3", data)
+
   drawToCanvas('original_filtered', data.InvFFT());
+  drawEChart("echart4", data)
+
 
   drawToCanvas('all_in_one', data.frequencyMap((freq, i, n) => {
     if (i > n/5 && i < 4*n/5) {
@@ -44,4 +54,8 @@ window.onload = function() {
       freq.imag = 0;
     }
   }));
+  drawEChart("echart5", data)
+
+
+  
 }

@@ -27,6 +27,7 @@
     "dist"
   ],
   "dependencies": {
+    "echarts": "^4.9.0",
     "simple-statistics": "^7.2.0"
   }
 }
